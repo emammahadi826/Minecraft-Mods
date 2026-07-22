@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "end_update:block/ether_ore"
+    }
+  }
+}

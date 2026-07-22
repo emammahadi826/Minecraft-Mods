@@ -1,0 +1,14 @@
+{
+  "block.end_update.ether_ore": "Ether Ore",
+  "block.end_update.raw_ether_block": "Block of Raw Ether",
+  "block.end_update.ether_block": "Block of Ether",
+  "item.end_update.raw_ether": "Raw Ether",
+  "item.end_update.ether_ingot": "Ether Ingot",
+  "item.end_update.ether_nugget": "Ether Nugget",
+  "item.end_update.ether_sword": "Ether Sword",
+  "item.end_update.ether_pickaxe": "Ether Pickaxe",
+  "item.end_update.ether_axe": "Ether Axe",
+  "item.end_update.ether_shovel": "Ether Shovel",
+  "item.end_update.ether_hoe": "Ether Hoe",
+  "itemGroup.end_update": "End Update"
+}

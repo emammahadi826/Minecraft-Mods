@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "end_update:block/raw_ether_block"
+    }
+  }
+}

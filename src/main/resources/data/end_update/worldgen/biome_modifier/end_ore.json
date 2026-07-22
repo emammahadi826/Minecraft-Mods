@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:add_features",
+  "biomes": [
+    "#minecraft:is_end"
+  ],
+  "features": [
+    "end_update:ether_ore"
+  ],
+  "step": "underground_ores"
+}

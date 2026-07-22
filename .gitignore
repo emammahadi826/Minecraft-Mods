@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+build/
+local.properties
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Mod JARs
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+
+# Backups
+backup/
+
+# Loom cache
+loom-cache/
+net/minecraft/
+
+# Misc
+*.log
+out/

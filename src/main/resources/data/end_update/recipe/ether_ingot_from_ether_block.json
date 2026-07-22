@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "end_update:ether_block"
+  ],
+  "result": {
+    "count": 9,
+    "id": "end_update:ether_ingot"
+  }
+}

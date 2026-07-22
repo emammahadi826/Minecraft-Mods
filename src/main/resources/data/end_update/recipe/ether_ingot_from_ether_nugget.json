@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget"
+  ],
+  "result": {
+    "id": "end_update:ether_ingot"
+  }
+}

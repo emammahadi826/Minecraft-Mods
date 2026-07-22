@@ -1,0 +1,8 @@
+{
+  "replace": false,
+  "values": [
+    "end_update:ether_ore",
+    "end_update:raw_ether_block",
+    "end_update:ether_block"
+  ]
+}

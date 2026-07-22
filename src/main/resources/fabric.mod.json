@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "end_update",
+  "version": "${version}",
+  "name": "End Update",
+  "description": "Expands the End dimension with new Ether material, tools, blocks, and worldgen.",
+  "authors": ["End Update Team"],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/end_update/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": ["com.endupdate.mod.EndUpdateMod"],
+    "client": ["com.endupdate.mod.EndUpdateClient"]
+  },
+  "mixins": ["end_update.mixins.json", "end_update.client.mixins.json"],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}
