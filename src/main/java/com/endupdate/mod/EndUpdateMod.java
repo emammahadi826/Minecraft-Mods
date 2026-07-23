@@ -1,6 +1,7 @@
 package com.endupdate.mod;
 
 import com.endupdate.mod.block.ModBlocks;
+import com.endupdate.mod.item.ModArmor;
 import com.endupdate.mod.item.ModItemGroup;
 import com.endupdate.mod.item.ModItems;
 import com.endupdate.mod.item.ModToolMaterial;
@@ -20,6 +21,7 @@ public class EndUpdateMod implements ModInitializer {
 		ModBlocks.initialize();
 		ModItems.initialize();
 		ModTools.initialize();
+		ModArmor.initialize();
 		ModItemGroup.initialize();
 		ModWorldGen.initialize();
 		LOGGER.info("End Update loaded!");

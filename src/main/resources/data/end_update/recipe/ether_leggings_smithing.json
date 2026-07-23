@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smithing_transform",
+  "template": "end_update:ether_upgrade_smithing_template",
+  "base": "minecraft:netherite_leggings",
+  "addition": "end_update:ether_ingot",
+  "result": {
+    "id": "end_update:ether_leggings"
+  }
+}

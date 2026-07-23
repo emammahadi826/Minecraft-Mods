@@ -10,5 +10,10 @@
   "item.end_update.ether_axe": "Ether Axe",
   "item.end_update.ether_shovel": "Ether Shovel",
   "item.end_update.ether_hoe": "Ether Hoe",
+  "item.end_update.ether_helmet": "Ether Helmet",
+  "item.end_update.ether_chestplate": "Ether Chestplate",
+  "item.end_update.ether_leggings": "Ether Leggings",
+  "item.end_update.ether_boots": "Ether Boots",
+  "item.end_update.ether_upgrade_smithing_template": "Ether Upgrade Smithing Template",
   "itemGroup.end_update": "End Update"
 }

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    "end_update:ether_upgrade_smithing_template",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget",
+    "end_update:ether_nugget"
+  ],
+  "result": {
+    "count": 2,
+    "id": "end_update:ether_upgrade_smithing_template"
+  }
+}

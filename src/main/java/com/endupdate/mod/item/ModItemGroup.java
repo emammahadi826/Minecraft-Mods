@@ -31,8 +31,13 @@ public class ModItemGroup {
 				output.accept(ModTools.ETHER_PICKAXE);
 				output.accept(ModTools.ETHER_AXE);
 				output.accept(ModTools.ETHER_SHOVEL);
-				output.accept(ModTools.ETHER_HOE);
-			})
+			output.accept(ModTools.ETHER_HOE);
+			output.accept(ModItems.ETHER_UPGRADE_SMITHING_TEMPLATE);
+			output.accept(ModArmor.ETHER_HELMET);
+			output.accept(ModArmor.ETHER_CHESTPLATE);
+			output.accept(ModArmor.ETHER_LEGGINGS);
+			output.accept(ModArmor.ETHER_BOOTS);
+		})
 			.build();
 
 	public static void initialize() {

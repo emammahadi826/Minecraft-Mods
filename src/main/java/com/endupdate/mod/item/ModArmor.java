@@ -6,26 +6,27 @@ import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.item.equipment.ArmorType;
 import net.minecraft.world.item.Item;
 
 import java.util.function.Function;
 
-public class ModItems {
-	public static final Item RAW_ETHER = register("raw_ether",
+public class ModArmor {
+	public static final Item ETHER_HELMET = register("ether_helmet",
 			Item::new,
-			new Item.Properties());
+			new Item.Properties().humanoidArmor(ModArmorMaterial.ETHER_ARMOR, ArmorType.HELMET).fireResistant());
 
-	public static final Item ETHER_INGOT = register("ether_ingot",
+	public static final Item ETHER_CHESTPLATE = register("ether_chestplate",
 			Item::new,
-			new Item.Properties());
+			new Item.Properties().humanoidArmor(ModArmorMaterial.ETHER_ARMOR, ArmorType.CHESTPLATE).fireResistant());
 
-	public static final Item ETHER_NUGGET = register("ether_nugget",
+	public static final Item ETHER_LEGGINGS = register("ether_leggings",
 			Item::new,
-			new Item.Properties());
+			new Item.Properties().humanoidArmor(ModArmorMaterial.ETHER_ARMOR, ArmorType.LEGGINGS).fireResistant());
 
-	public static final Item ETHER_UPGRADE_SMITHING_TEMPLATE = register("ether_upgrade_smithing_template",
+	public static final Item ETHER_BOOTS = register("ether_boots",
 			Item::new,
-			new Item.Properties().stacksTo(64));
+			new Item.Properties().humanoidArmor(ModArmorMaterial.ETHER_ARMOR, ArmorType.BOOTS).fireResistant());
 
 	private static <T extends Item> T register(String name, Function<Item.Properties, T> factory, Item.Properties properties) {
 		ResourceKey<Item> key = ResourceKey.create(Registries.ITEM, Identifier.fromNamespaceAndPath(EndUpdateMod.MOD_ID, name));
@@ -35,6 +36,6 @@ public class ModItems {
 	}
 
 	public static void initialize() {
-		EndUpdateMod.LOGGER.info("ModItems loaded");
+		EndUpdateMod.LOGGER.info("ModArmor loaded");
 	}
 }
