@@ -46,6 +46,8 @@ public class EtherGearBonus {
             }
             Vec3 direction = rawDir.normalize();
 
+            if (player.level().dimension() != Level.END) return InteractionResult.PASS;
+
             Vec3 spawnPos = eyePos.add(direction.scale(0.5));
             EtherSlashEntity slash = new EtherSlashEntity(level, spawnPos, direction, player);
             slash.setIsAxe(isEtherAxe(player.getMainHandItem()));
