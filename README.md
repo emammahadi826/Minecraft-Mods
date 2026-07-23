@@ -37,6 +37,7 @@ Full armor set with Netherite-tier defense. Obtained via **smithing upgrade** (n
 - Knockback Resistance: 0.1
 - Enchantability: 15
 - Fire Resistant (like Netherite)
+- Full worn armor textures (humanoid + leggings layers) via `equipment/ether.json`
 
 ### Ether Upgrade Smithing Template
 - Found in **dungeon chests**, **stronghold libraries**, and **End city treasure chests** (very rare)

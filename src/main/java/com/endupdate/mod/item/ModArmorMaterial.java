@@ -1,6 +1,7 @@
 package com.endupdate.mod.item;
 
 import com.endupdate.mod.EndUpdateMod;
+import net.minecraft.resources.Identifier;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.item.equipment.ArmorMaterial;
@@ -11,7 +12,7 @@ import net.minecraft.world.item.equipment.EquipmentAssets;
 import java.util.Map;
 
 public class ModArmorMaterial {
-	public static final ResourceKey<EquipmentAsset> ETHER_ARMOR_KEY = EquipmentAssets.createId("ether");
+	public static final ResourceKey<EquipmentAsset> ETHER_ARMOR_KEY = ResourceKey.create(EquipmentAssets.ROOT_ID, Identifier.fromNamespaceAndPath(EndUpdateMod.MOD_ID, "ether"));
 
 	public static final ArmorMaterial ETHER_ARMOR = new ArmorMaterial(
 			5,
