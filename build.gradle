@@ -7,12 +7,9 @@ version = project.mod_version
 group = project.maven_group
 
 loom {
-	splitEnvironmentSourceSets()
-
 	mods {
 		"end_update" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 }

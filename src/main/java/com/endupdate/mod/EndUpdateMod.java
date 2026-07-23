@@ -1,6 +1,7 @@
 package com.endupdate.mod;
 
 import com.endupdate.mod.block.ModBlocks;
+import com.endupdate.mod.entity.ModEntities;
 import com.endupdate.mod.item.ModArmor;
 import com.endupdate.mod.item.ModItemGroup;
 import com.endupdate.mod.item.ModItems;
@@ -24,6 +25,9 @@ public class EndUpdateMod implements ModInitializer {
 		ModArmor.initialize();
 		ModItemGroup.initialize();
 		ModWorldGen.initialize();
+		ModParticles.initialize();
+		ModEntities.initialize();
+		EtherGearBonus.initialize();
 		LOGGER.info("End Update loaded!");
 	}
 }

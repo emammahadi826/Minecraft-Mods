@@ -247,13 +247,67 @@ ModArmor.initialize();  // after ModTools.initialize()
 
 ---
 
-### Phase 11: Armor Set Bonuses (Future)
+### Phase 11: Ether Gear Bonuses — Armor + Tools + Particles
 
-**Goal:** Wear full Ether armor set → gain special effect.
+**Goal:** Ether armor gives effects in End. Ether tools give effects when held. Visual particle feedback on attacks.
 
-Ideas:
-- Full set bonus: slow falling + resistance in End
-- Set piece bonuses (2-piece, 4-piece)
+---
+
+#### A. Armor Bonuses (End dimension only, permanent while worn)
+
+| Piece | Effect | Vanilla Particle |
+|---|---|---|
+| Helmet | Night Vision | `END_ROD` |
+| Chestplate | Resistance I | `DRAGON_BREATH` |
+| Leggings | Speed I | `PORTAL` |
+| Boots | Slow Falling | `SOUL_FIRE_FLAME` |
+| **Full Set (4/4)** | Haste I + all above | `DUST_COLOR_TRANSITION` |
+
+No timer — effect stays as long as wearing + in End. Remove armor or leave End → effect stops.
+
+#### B. Tool Bonuses (any dimension, when held in main hand)
+
+| Tool | Effect | Hit/Mining Particle |
+|---|---|---|
+| Sword | Haste I | `ENCHANTED_HIT` on hit + `TRAIL` slash (violet, #8E6DFF) |
+| Pickaxe | Haste I | `ENCHANT` while mining |
+| Axe | Strength I | `SOUL_FIRE_FLAME` on hit |
+| Shovel | Speed I | `DUST` (purple) while digging |
+| Hoe | Night Vision | `END_ROD` |
+
+No timer — effect stays as long as holding. Switch item → effect stops.
+
+#### C. Implementation
+
+**New Files:**
+
+| File | Purpose |
+|---|---|
+| `src/main/java/com/endupdate/mod/EtherGearBonus.java` | Tick events for armor + tool passive effects, attack events for particles |
+| `src/client/java/com/endupdate/mod/EtherGearBonusClient.java` | Client-only — particle spawning for visual effects |
+
+**Edit:**
+
+| File | Change |
+|---|---|
+| `EndUpdateMod.java` | Add `EtherGearBonus.initialize()` |
+| `EndUpdateClient.java` | Add `EtherGearBonusClient.initialize()` |
+
+#### D. How It Works
+
+```
+Server-side (EtherGearBonus.java):
+→ Every 60 ticks, check player
+→ Armor: check dimension (End only) → apply/remove effects per piece
+→ Tools: check main hand (any dimension) → apply/remove effects
+→ Attacks: AttackEntityCallback/AttackBlockCallback → send particle trigger
+
+Client-side (EtherGearBonusClient.java):
+→ Listen for attack events → spawn visual particles (sword slash, hit effects)
+```
+
+#### E. Verify
+`./gradlew build` compiles successfully.
 
 ---
 
