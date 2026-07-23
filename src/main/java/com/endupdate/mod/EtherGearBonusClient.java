@@ -28,6 +28,10 @@ public class EtherGearBonusClient {
         ParticleProviderRegistry.getInstance().register(ModParticles.ETHER_SLASH_SMALL_1, EtherSlashParticle.Small1Provider::new);
         ParticleProviderRegistry.getInstance().register(ModParticles.ETHER_SLASH_SMALL_2, EtherSlashParticle.Small2Provider::new);
         ParticleProviderRegistry.getInstance().register(ModParticles.ETHER_SLASH_SMALL_3, EtherSlashParticle.Small3Provider::new);
+        ParticleProviderRegistry.getInstance().register(ModParticles.ETHER_AXE_SLASH, EtherSlashParticle.LargeProvider::new);
+        ParticleProviderRegistry.getInstance().register(ModParticles.ETHER_AXE_SLASH_SMALL_1, EtherSlashParticle.Small1Provider::new);
+        ParticleProviderRegistry.getInstance().register(ModParticles.ETHER_AXE_SLASH_SMALL_2, EtherSlashParticle.Small2Provider::new);
+        ParticleProviderRegistry.getInstance().register(ModParticles.ETHER_AXE_SLASH_SMALL_3, EtherSlashParticle.Small3Provider::new);
 
         AttackEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
             if (hand != InteractionHand.MAIN_HAND || !(level instanceof ClientLevel clientLevel)) return InteractionResult.PASS;
@@ -88,7 +92,11 @@ public class EtherGearBonusClient {
                     double len = vel.length();
                     if (len > 0.001) {
                         Vec3 dir = vel.normalize();
-                        spawnSlashVisual(client.level, pos, dir);
+                        if (slash.isAxe()) {
+                            spawnAxeSlashVisual(client.level, pos, dir);
+                        } else {
+                            spawnSlashVisual(client.level, pos, dir);
+                        }
                     }
                 }
             }
@@ -114,6 +122,27 @@ public class EtherGearBonusClient {
                 dir.x, 0, dir.z);
 
         level.addParticle(ModParticles.ETHER_SLASH_SMALL_3,
+                pos.x, pos.y - 0.10, pos.z,
+                dir.x, 0, dir.z);
+    }
+
+    private static void spawnAxeSlashVisual(ClientLevel level, Vec3 pos, Vec3 dir) {
+        double perpX = -dir.z;
+        double perpZ = dir.x;
+
+        level.addParticle(ModParticles.ETHER_AXE_SLASH,
+                pos.x, pos.y + 0.10, pos.z,
+                dir.x, 0, dir.z);
+
+        level.addParticle(ModParticles.ETHER_AXE_SLASH_SMALL_1,
+                pos.x + perpX * (-0.20), pos.y - 0.05, pos.z + perpZ * (-0.20),
+                dir.x, 0, dir.z);
+
+        level.addParticle(ModParticles.ETHER_AXE_SLASH_SMALL_2,
+                pos.x + perpX * 0.20, pos.y - 0.05, pos.z + perpZ * 0.20,
+                dir.x, 0, dir.z);
+
+        level.addParticle(ModParticles.ETHER_AXE_SLASH_SMALL_3,
                 pos.x, pos.y - 0.10, pos.z,
                 dir.x, 0, dir.z);
     }

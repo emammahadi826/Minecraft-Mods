@@ -33,7 +33,7 @@ public class EtherGearBonus {
         AttackEntityCallback.EVENT.register((player, level, hand, entity, hitResult) -> {
             if (hand != InteractionHand.MAIN_HAND) return InteractionResult.PASS;
             if (!(level instanceof ServerLevel)) return InteractionResult.PASS;
-            if (!isEtherSword(player.getMainHandItem())) return InteractionResult.PASS;
+            if (!isEtherSword(player.getMainHandItem()) && !isEtherAxe(player.getMainHandItem())) return InteractionResult.PASS;
             if (!(entity instanceof LivingEntity)) return InteractionResult.PASS;
             if (!isCriticalHit(player)) return InteractionResult.PASS;
 
@@ -48,6 +48,7 @@ public class EtherGearBonus {
 
             Vec3 spawnPos = eyePos.add(direction.scale(0.5));
             EtherSlashEntity slash = new EtherSlashEntity(level, spawnPos, direction, player);
+            slash.setIsAxe(isEtherAxe(player.getMainHandItem()));
             level.addFreshEntity(slash);
             EndUpdateMod.LOGGER.info("[EtherGearBonus] Slash spawned for {} at pos={} dir={} target={}", player.getName().getString(), String.format("%.1f,%.1f,%.1f", spawnPos.x, spawnPos.y, spawnPos.z), String.format("%.2f,%.2f,%.2f", direction.x, direction.y, direction.z), entity.getName().getString());
 
@@ -84,6 +85,10 @@ public class EtherGearBonus {
 
     private static boolean isEtherSword(ItemStack stack) {
         return stack.is(com.endupdate.mod.item.ModTools.ETHER_SWORD);
+    }
+
+    private static boolean isEtherAxe(ItemStack stack) {
+        return stack.is(com.endupdate.mod.item.ModTools.ETHER_AXE);
     }
 
     private static boolean isCriticalHit(Player player) {

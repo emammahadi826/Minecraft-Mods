@@ -311,6 +311,28 @@ Client-side (EtherGearBonusClient.java):
 
 ---
 
+### Phase 11.1: Ether Axe Critical Slash Visual
+
+**Goal:** Add trailing arrow slash visual for Ether Axe critical hits, using new axe textures. Sword system completely untouched.
+
+#### Textures (from project root → `textures/particle/`)
+- `Larg_Slash.png` → `axe_slash_large.png`
+- `Rounder_Slash.png` → `axe_slash_rounded_1.png`
+- `Small_Rounder_Slash.png` → `axe_slash_rounded_2.png`
+- `Small_slash.png` → `axe_slash_small.png`
+
+#### Implementation
+1. `EtherSlashEntity.java` — Add synced `IS_AXE` boolean, getter/setter
+2. `EtherGearBonus.java` — Add axe crit support alongside sword (shared spawn logic)
+3. `ModParticles.java` — Register 4 axe particle types
+4. Create 4 axe particle JSONs (1 texture each)
+5. `EtherGearBonusClient.java` — Register axe providers, add `spawnAxeSlashVisual()`, branch on `slash.isAxe()`
+6. Do NOT modify `EtherSlashParticle.java`
+
+#### Status: IN PROGRESS
+
+---
+
 ### Phase 12: Ether Enchantments (Future)
 
 **Goal:** Custom enchantments exclusive to Ether tools/armor.

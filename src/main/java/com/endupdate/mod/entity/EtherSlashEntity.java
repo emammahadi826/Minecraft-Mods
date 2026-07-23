@@ -2,6 +2,7 @@ package com.endupdate.mod.entity;
 
 import com.endupdate.mod.EndUpdateMod;
 import net.minecraft.core.particles.ParticleTypes;
+import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.damagesource.DamageSource;
@@ -25,6 +26,7 @@ public class EtherSlashEntity extends Entity {
     public static final double MAX_DISTANCE = 10.0;
     public static final float DAMAGE = 6.0f;
     private static final double HIT_RADIUS = 2.0;
+    private static final EntityDataAccessor<Boolean> IS_AXE = SynchedEntityData.defineId(EtherSlashEntity.class, net.minecraft.network.syncher.EntityDataSerializers.BOOLEAN);
 
     private Player owner;
     private double distanceTraveled;
@@ -48,6 +50,15 @@ public class EtherSlashEntity extends Entity {
 
     @Override
     protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        builder.define(IS_AXE, false);
+    }
+
+    public void setIsAxe(boolean isAxe) {
+        this.entityData.set(IS_AXE, isAxe);
+    }
+
+    public boolean isAxe() {
+        return this.entityData.get(IS_AXE);
     }
 
     @Override
